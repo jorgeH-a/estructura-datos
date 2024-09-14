@@ -2,6 +2,7 @@ import edu.udelp.estructura.stack.ArrayStack;
 import  edu.udelp.operaciones.*;
 import edu.udelp.ordenamientos.*;
 import udelp.edu.estructura.nodos.LinkedStack;
+import edu.udelp.queue.*;
 
 import java.util.Scanner;
 public class Principal {
@@ -9,11 +10,63 @@ public class Principal {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		LinkedStack funcion=new LinkedStack();
 		
-		funcion.push("f");
-		funcion.push(5);
-		funcion.pop();
+		
+		
+		
+		
+		String ecuacion=null;
+		System.out.println("Porfavor deme su ecuacion");
+		Scanner leer=new Scanner(System.in);
+		ecuacion=leer.nextLine();
+		
+		ecuacion="("+ecuacion+")";
+		//Solo funciona con numeros de un digito
+		//De verdad que intente la jerarquia de operaciones pero no me sale, tengo mucho sueño y no se que hacer
+		//Pero si funcion, solo falla jerarquia de operaciones
+		
+		
+		ArrayStack funcion=new ArrayStack(ecuacion.length());
+		ArrayStack numeros=new ArrayStack(ecuacion.length());
+		ArrayStack operandos=new ArrayStack(ecuacion.length());
+		ArrayStack acomodar=new ArrayStack(ecuacion.length());
+		
+		EcuacionPolacaInversa resolver=new EcuacionPolacaInversa(ecuacion);
+		
+		
+		resolver.polacaInversa(funcion, numeros,operandos,acomodar);
+		
+		
+		
+		
+		/*
+		CircularQueue funcion=new CircularQueue(5);
+		
+		
+		funcion.enqueue(10);
+		funcion.enqueue(6);
+		funcion.enqueue(7);
+		funcion.enqueue(8);
+		funcion.enqueue(3);
+		
+		
+		System.out.println(funcion.front());
+		*/
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
@@ -56,10 +109,12 @@ public class Principal {
 		resolver.ecuacion(funcion);
 		*/
 		
+		/*
+		No hay problemas con parentesis pero no acepta numeros negativos
+		No funciona con numeros de mas de dos digitos ejemplo: 24, 64, 246
 		
 		
-		
-		
+		*/
 		
 		
 		
